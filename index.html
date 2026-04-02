@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ergo HODL Meter — Diamond Hands Detector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <header>
+      <div class="logo">💎</div>
+      <h1>ERGO HODL METER</h1>
+      <p class="tagline">Are you Diamond Hands or Paper Hands? The blockchain knows.</p>
+    </header>
+
+    <div class="input-section">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="addressInput"
+          placeholder="Enter Ergo wallet address..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="analyzeBtn">SCAN WALLET</button>
+      </div>
+      <p class="hint">Your wallet history will be judged.</p>
+    </div>
+
+    <div id="loadingSection" class="loading-section hidden">
+      <div class="loading-orb"></div>
+      <p id="loadingText">Reading the blockchain...</p>
+    </div>
+
+    <div id="resultSection" class="result-section hidden">
+      <!-- Rating Badge -->
+      <div id="ratingBadge" class="rating-badge">
+        <div id="ratingIcon" class="rating-icon">💎</div>
+        <div id="ratingTitle" class="rating-title">DIAMOND HANDS</div>
+        <div id="ratingSubtitle" class="rating-subtitle">True Believer</div>
+      </div>
+
+      <!-- HODL Score Meter -->
+      <div class="score-section">
+        <div class="score-label">HODL SCORE</div>
+        <div class="meter-container">
+          <div class="meter-track">
+            <div id="meterFill" class="meter-fill"></div>
+          </div>
+          <div class="meter-markers">
+            <span>0</span>
+            <span>25</span>
+            <span>50</span>
+            <span>75</span>
+            <span>100</span>
+          </div>
+        </div>
+        <div id="scoreDisplay" class="score-display">0</div>
+        <div class="score-sublabel">out of 100</div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-label">Wallet Age</div>
+          <div id="statAge" class="stat-value">—</div>
+          <div id="statAgeSub" class="stat-sub">days on-chain</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-label">Last Move</div>
+          <div id="statLastMove" class="stat-value">—</div>
+          <div id="statLastMoveSub" class="stat-sub">days since last tx</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-label">TX Count</div>
+          <div id="statTxCount" class="stat-value">—</div>
+          <div id="statTxCountSub" class="stat-sub">lifetime transactions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🪙</div>
+          <div class="stat-label">ERG Balance</div>
+          <div id="statBalance" class="stat-value">—</div>
+          <div id="statBalanceSub" class="stat-sub">ERG held</div>
+        </div>
+      </div>
+
+      <!-- Score Breakdown -->
+      <div class="breakdown-section">
+        <div class="breakdown-title">SCORE BREAKDOWN</div>
+        <div id="breakdownItems" class="breakdown-items"></div>
+      </div>
+
+      <!-- Oracle Prophecy -->
+      <div class="prophecy-section">
+        <div class="prophecy-title">🔮 THE ORACLE SPEAKS</div>
+        <p id="prophecyText" class="prophecy-text"></p>
+      </div>
+
+      <button id="resetBtn" class="reset-btn">JUDGE ANOTHER WALLET</button>
+    </div>
+
+    <div id="errorSection" class="error-section hidden">
+      <div class="error-icon">⚠️</div>
+      <p id="errorText">Something went wrong.</p>
+      <button id="errorResetBtn" class="reset-btn">TRY AGAIN</button>
+    </div>
+
+    <footer>
+      <p>Data from <a href="https://api.ergoplatform.com" target="_blank">Ergo Explorer API</a> • No wallet keys required</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
